@@ -116,7 +116,7 @@ export default function Dashboard() {
                 Trigger monthly revenue report
               </button>
             </li>
-            <li>View attestation history</li>
+            <li><Link to="/attestations">View attestation history</Link></li>
           </ul>
         </section>
 

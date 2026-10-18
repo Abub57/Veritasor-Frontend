@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import LocaleAccountMenu from '../components/LocalePicker/LocaleAccountMenu'
 
 const FEATURES = [
   {
@@ -35,6 +36,8 @@ export default function Landing() {
           <a href="#features">Features</a>
           <a href="#how">How it works</a>
           <a href="https://github.com/Veritasor/Veritasor-Frontend#readme" target="_blank" rel="noreferrer">Docs</a>
+          <a href="https://github.com/Veritasor/Veritasor-Frontend" target="_blank" rel="noreferrer">GitHub</a>
+          <LocaleAccountMenu />
           <Link to="/login">Log in</Link>
           <Link to="/signup" className="landing-btn landing-btn-primary">Get started</Link>
         </nav>
@@ -89,6 +92,7 @@ export default function Landing() {
         <span>Veritasor. Open source frontend, demo build.</span>
         <span>
           <Link to="/login">Log in</Link> · <Link to="/consent-preferences">Cookie settings</Link> ·{' '}
+          <a href="https://veritasor-frontend-opal.vercel.app" target="_blank" rel="noreferrer">Live site</a> ·{' '}
           <a href="https://github.com/Veritasor/Veritasor-Frontend" target="_blank" rel="noreferrer">GitHub</a>
         </span>
       </footer>

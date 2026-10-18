@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LocaleProvider } from './i18n/provider'
 import { ToastProvider } from './components/ToastContext'
 import Layout from './components/Layout'
-import LocaleAccountMenu from './components/LocalePicker/LocaleAccountMenu'
+import { CookieConsentProvider } from './components/CookieConsentContext'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
@@ -11,7 +11,6 @@ import OnboardingWizard from './pages/OnboardingWizard'
 import Dashboard from './pages/Dashboard'
 import Attestations from './pages/Attestations'
 import AttestationDetail from './pages/AttestationDetail'
-import MotionDemo from './pages/MotionDemo'
 import NotFound from './pages/NotFound'
 import ServerError from './pages/ServerError'
 import ApiKeys from './pages/ApiKeys'
@@ -34,8 +33,8 @@ export default function App() {
   return (
     <LocaleProvider>
       <ToastProvider>
-      <LocaleAccountMenu className="locale-floating" />
-      <BrowserRouter>
+      <CookieConsentProvider>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
@@ -47,7 +46,6 @@ export default function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="attestations" element={<Attestations />} />
             <Route path="attestations/:id" element={<AttestationDetail />} />
-            <Route path="motion-tokens" element={<MotionDemo />} />
             <Route path="sources" element={<RevenueSources />} />
             <Route path="settings" element={<Settings />} />
             <Route path="api-keys" element={<ApiKeys />} />
@@ -65,6 +63,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      </CookieConsentProvider>
     </ToastProvider>
     </LocaleProvider>
   )

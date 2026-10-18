@@ -1,6 +1,6 @@
 # Veritasor Frontend
 
-**Live demo: https://veritasor-frontend.vercel.app** (demo build, sample data only)
+**Live demo: https://veritasor-frontend-opal.vercel.app** (demo build, sample data only)
 
 Web app for [Veritasor](https://github.com/Veritasor), an on-chain revenue attestation protocol. Businesses connect revenue sources, anchor a Merkle root of a reporting period on-chain (Stellar), and share verifiable proof with lenders, investors and partners without exposing raw transactions.
 
