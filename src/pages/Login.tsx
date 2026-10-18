@@ -99,8 +99,8 @@ function getMethodDefinition(
 
 function CredentialsState({ onContinue }: { onContinue: () => void }) {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("ops@veritasor.com");
-  const [password, setPassword] = useState("badpass");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [rememberDevice, setRememberDevice] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submitTimerRef = useRef<number | null>(null);

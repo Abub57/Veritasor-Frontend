@@ -140,7 +140,7 @@ function LayoutInner() {
         >
           <nav aria-label="Main navigation">
             <NavLink
-              to="/"
+              to="/dashboard"
               end
               className={({ isActive }) =>
                 `sidebar-link${isActive ? " sidebar-link-active" : ""}`

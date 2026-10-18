@@ -64,7 +64,7 @@ export default function Dashboard() {
     <div className="dashboard-page">
       <h1 style={{ marginTop: 0 }}>Dashboard</h1>
       <p style={{ color: 'var(--muted)' }}>
-        Connect your revenue sources and manage attestations from here.
+        Connect your revenue sources and manage attestations from here. (Demo build: all figures shown are sample data.)
       </p>
 
       <div className="dashboard-grid">

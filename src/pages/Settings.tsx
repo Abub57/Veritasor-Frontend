@@ -5506,7 +5506,7 @@ const PANELS: Record<TabId, () => JSX.Element> = {
   billing: BillingPanel,
   security: SecurityPanel,
   "audit-log": AuditLogPanel,
-  "a11y-audit": A11yPanel,
+  "a11y-audit": () => <A11yAuditPanel />,
 };
 
 // ─── Unsaved Changes Navigation Guard ─────────────────────────────────────────

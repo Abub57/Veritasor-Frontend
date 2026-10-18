@@ -1,8 +1,19 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LocaleProvider } from './i18n/provider'
 import { ToastProvider } from './components/ToastContext'
 import Layout from './components/Layout'
 import LocaleAccountMenu from './components/LocalePicker/LocaleAccountMenu'
+import Landing from './pages/Landing'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import ForgotPassword from './pages/ForgotPassword'
+import OnboardingWizard from './pages/OnboardingWizard'
+import Dashboard from './pages/Dashboard'
+import Attestations from './pages/Attestations'
+import AttestationDetail from './pages/AttestationDetail'
+import MotionDemo from './pages/MotionDemo'
+import NotFound from './pages/NotFound'
+import ServerError from './pages/ServerError'
 import ApiKeys from './pages/ApiKeys'
 import HelpArticle from './pages/HelpArticle'
 import RevenueSources from './pages/RevenueSources'
@@ -18,19 +29,25 @@ import {
   ConfirmSourceStep,
 } from './pages/connect-source/ConnectSourceWizard'
 
-const Dashboard = () => <div className="p-6 text-zinc-900 dark:text-white font-semibold">Dashboard Content View</div>
-const Attestations = () => <div className="p-6 text-zinc-900 dark:text-white font-semibold">Attestation Registry View</div>
 
 export default function App() {
   return (
     <LocaleProvider>
-      <LocaleAccountMenu className="fixed right-4 top-4 z-50" />
+      <ToastProvider>
+      <LocaleAccountMenu className="locale-floating" />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/onboarding" element={<OnboardingWizard />} />
+          <Route path="/500" element={<ServerError />} />
+          <Route element={<Layout />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="attestations" element={<Attestations />} />
+            <Route path="attestations/:id" element={<AttestationDetail />} />
+            <Route path="motion-tokens" element={<MotionDemo />} />
             <Route path="sources" element={<RevenueSources />} />
             <Route path="settings" element={<Settings />} />
             <Route path="api-keys" element={<ApiKeys />} />
@@ -45,8 +62,10 @@ export default function App() {
               <Route path="confirm" element={<ConfirmSourceStep />} />
             </Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+    </ToastProvider>
     </LocaleProvider>
   )
 }
